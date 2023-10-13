@@ -5,4 +5,6 @@ import com.example.wantedpreonboardingbackend.user.dto.UserRequsetDto;
 
 public interface UserService {
     ApiResponseDto createUser(UserRequsetDto requestDto);
+
+    User getUser(Long userId);
 }

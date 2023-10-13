@@ -17,4 +17,8 @@ public class UserServiceImpl implements UserService{
 
         return new ApiResponseDto("회원 생성", 201);
     }
+
+    public User getUser(Long userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("회원을 찾을 수 없습니다."));
+    }
 }
