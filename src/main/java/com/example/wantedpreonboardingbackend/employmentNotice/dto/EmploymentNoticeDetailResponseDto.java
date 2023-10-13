@@ -1,6 +1,6 @@
-package com.example.wantedpreonboardingbackend.employment.dto;
+package com.example.wantedpreonboardingbackend.employmentNotice.dto;
 
-import com.example.wantedpreonboardingbackend.employment.EmploymentNotice;
+import com.example.wantedpreonboardingbackend.employmentNotice.EmploymentNotice;
 import lombok.Getter;
 
 @Getter

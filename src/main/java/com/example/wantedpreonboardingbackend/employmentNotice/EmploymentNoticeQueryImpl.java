@@ -1,7 +1,5 @@
-package com.example.wantedpreonboardingbackend.employment;
+package com.example.wantedpreonboardingbackend.employmentNotice;
 
-import com.example.wantedpreonboardingbackend.employment.EmploymentNoticeQuery;
-import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import com.querydsl.jpa.impl.JPAQueryFactory;

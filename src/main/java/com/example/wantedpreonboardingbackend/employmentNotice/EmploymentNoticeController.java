@@ -1,11 +1,10 @@
-package com.example.wantedpreonboardingbackend.employment;
+package com.example.wantedpreonboardingbackend.employmentNotice;
 
 import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeDetailResponseDto;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeDetailResponseDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeRequestDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

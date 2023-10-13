@@ -1,4 +1,4 @@
-package com.example.wantedpreonboardingbackend.employment.dto;
+package com.example.wantedpreonboardingbackend.employmentNotice.dto;
 
 import lombok.Getter;
 

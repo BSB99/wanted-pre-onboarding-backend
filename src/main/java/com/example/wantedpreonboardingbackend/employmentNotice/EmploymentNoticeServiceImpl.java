@@ -1,13 +1,12 @@
-package com.example.wantedpreonboardingbackend.employment;
+package com.example.wantedpreonboardingbackend.employmentNotice;
 
 import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
 import com.example.wantedpreonboardingbackend.company.Company;
 import com.example.wantedpreonboardingbackend.company.CompanyService;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeDetailResponseDto;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeDetailResponseDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeRequestDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

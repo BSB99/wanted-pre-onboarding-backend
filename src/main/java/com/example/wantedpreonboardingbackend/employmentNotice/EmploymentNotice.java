@@ -1,7 +1,7 @@
-package com.example.wantedpreonboardingbackend.employment;
+package com.example.wantedpreonboardingbackend.employmentNotice;
 
 import com.example.wantedpreonboardingbackend.company.Company;
-import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
+import com.example.wantedpreonboardingbackend.employmentNotice.dto.EmploymentNoticeRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
