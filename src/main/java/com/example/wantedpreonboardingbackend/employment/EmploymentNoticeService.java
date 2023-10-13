@@ -16,4 +16,6 @@ public interface EmploymentNoticeService {
     ApiResponseDto deleteEmploymentNotice(Long employmentNoticeId);
 
     List<EmploymentNoticeResponseDto> getEmploymentNoticeList(Pageable pageable);
+
+    List<EmploymentNoticeResponseDto> getSearchEmploymentNoticeList(Pageable pageable, String content);
 }

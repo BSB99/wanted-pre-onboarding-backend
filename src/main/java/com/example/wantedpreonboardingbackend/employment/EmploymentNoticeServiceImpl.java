@@ -27,6 +27,10 @@ public class EmploymentNoticeServiceImpl implements EmploymentNoticeService{
                 .toList();
     }
 
+    public List<EmploymentNoticeResponseDto> getSearchEmploymentNoticeList(Pageable pageable, String content) {
+        return employmentNoticeRepository.searchEmploymentNoticeList(pageable, content).stream().map(EmploymentNoticeResponseDto::new).toList();
+    }
+
     public EmploymentNoticeResponseDto createEmploymentNotice(EmploymentNoticeRequestDto requestDto) {
         Company company = companyService.getCompany(requestDto.getCompanyId());
         EmploymentNotice employmentNotice = new EmploymentNotice(requestDto, company);

@@ -32,6 +32,13 @@ public class EmploymentNoticeController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<EmploymentNoticeResponseDto>> getSearchEmploymentNoticeList(Pageable pageable, @RequestParam(value = "content", required = false) String content) {
+        List<EmploymentNoticeResponseDto> result = employmentNoticeService.getSearchEmploymentNoticeList(pageable, content);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
     @PutMapping("/{employmentNoticeId}")
     public ResponseEntity<EmploymentNoticeResponseDto> updateEmploymentNotice(@PathVariable Long employmentNoticeId,@RequestBody EmploymentNoticeRequestDto requestDto) {
         EmploymentNoticeResponseDto result = employmentNoticeService.updateEmploymentNotice(requestDto, employmentNoticeId);
