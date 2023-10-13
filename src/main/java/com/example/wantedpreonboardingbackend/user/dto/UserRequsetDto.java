@@ -3,6 +3,6 @@ package com.example.wantedpreonboardingbackend.user.dto;
 import lombok.Getter;
 
 @Getter
-public class userRequsetDto {
+public class UserRequsetDto {
     private String name;
 }

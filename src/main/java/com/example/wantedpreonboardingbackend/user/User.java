@@ -1,6 +1,6 @@
 package com.example.wantedpreonboardingbackend.user;
 
-import com.example.wantedpreonboardingbackend.user.dto.userRequsetDto;
+import com.example.wantedpreonboardingbackend.user.dto.UserRequsetDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +16,7 @@ public class User {
 
     private String name;
 
-    public User(userRequsetDto requestDto) {
+    public User(UserRequsetDto requestDto) {
         this.name = requestDto.getName();
     }
 }
