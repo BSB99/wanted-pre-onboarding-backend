@@ -9,4 +9,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepository companyRepository;
+
+    public CompanyResponseDto createCompany(CompanyRequestDto requestDto) {
+        Company company = new Company(requestDto);
+
+        companyRepository.save(company);
+
+        return new CompanyResponseDto(company);
+    };
 }
