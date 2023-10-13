@@ -6,6 +6,7 @@ import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeReq
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,5 +21,27 @@ public class EmploymentNoticeServiceImpl implements EmploymentNoticeService{
         employmentNoticeRepository.save(employmentNotice);
 
         return new EmploymentNoticeResponseDto(employmentNotice);
+    }
+
+    @Transactional
+    public EmploymentNoticeResponseDto updateEmploymentNotice(EmploymentNoticeRequestDto requestDto, Long employmentNoticeId) {
+        EmploymentNotice employmentNotice = getEmploymentNotice(employmentNoticeId);
+
+        employmentNotice.setDescription(requestDto.getDescription());
+        employmentNotice.setPosition(requestDto.getPosition());
+        employmentNotice.setTechnology(requestDto.getTechnology());
+        employmentNotice.setMoney(requestDto.getMoney());
+
+        if(!employmentNotice.getCompany().getId().equals(requestDto.getCompanyId())) {
+            Company company = companyService.getCompany(requestDto.getCompanyId());
+
+            employmentNotice.setCompany(company);
+        }
+
+        return new EmploymentNoticeResponseDto(employmentNotice);
+    };
+
+    public EmploymentNotice getEmploymentNotice(Long employmentNoticeId) {
+        return employmentNoticeRepository.findById(employmentNoticeId).orElseThrow(() -> new IllegalArgumentException("기업공고를 찾을 수 없습니다."));
     }
 }

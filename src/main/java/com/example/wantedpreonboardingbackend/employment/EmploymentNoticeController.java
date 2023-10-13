@@ -5,10 +5,7 @@ import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRes
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,5 +18,12 @@ public class EmploymentNoticeController {
         EmploymentNoticeResponseDto result = employmentNoticeService.createEmploymentNotice(requestDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @PutMapping("/{employmentNoticeId}")
+    public ResponseEntity<EmploymentNoticeResponseDto> updateEmploymentNotice(@PathVariable Long employmentNoticeId,@RequestBody EmploymentNoticeRequestDto requestDto) {
+        EmploymentNoticeResponseDto result = employmentNoticeService.updateEmploymentNotice(requestDto, employmentNoticeId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 }

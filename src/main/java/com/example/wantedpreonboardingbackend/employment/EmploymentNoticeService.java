@@ -5,4 +5,6 @@ import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRes
 
 public interface EmploymentNoticeService {
     EmploymentNoticeResponseDto createEmploymentNotice(EmploymentNoticeRequestDto requestDto);
+
+    EmploymentNoticeResponseDto updateEmploymentNotice(EmploymentNoticeRequestDto requestDto, Long employmentNoticeId);
 }
