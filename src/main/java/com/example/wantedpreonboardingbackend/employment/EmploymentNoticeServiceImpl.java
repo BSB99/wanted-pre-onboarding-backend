@@ -1,5 +1,6 @@
 package com.example.wantedpreonboardingbackend.employment;
 
+import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
 import com.example.wantedpreonboardingbackend.company.Company;
 import com.example.wantedpreonboardingbackend.company.CompanyService;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
@@ -40,6 +41,15 @@ public class EmploymentNoticeServiceImpl implements EmploymentNoticeService{
 
         return new EmploymentNoticeResponseDto(employmentNotice);
     };
+
+    @Transactional
+    public ApiResponseDto deleteEmploymentNotice(Long employmentNoticeId) {
+        EmploymentNotice employmentNotice = getEmploymentNotice(employmentNoticeId);
+
+        employmentNoticeRepository.delete(employmentNotice);
+
+        return new ApiResponseDto("기업공고가 삭제되었습니다.", 200);
+    }
 
     public EmploymentNotice getEmploymentNotice(Long employmentNoticeId) {
         return employmentNoticeRepository.findById(employmentNoticeId).orElseThrow(() -> new IllegalArgumentException("기업공고를 찾을 수 없습니다."));

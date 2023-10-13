@@ -1,5 +1,6 @@
 package com.example.wantedpreonboardingbackend.employment;
 
+import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,13 @@ public class EmploymentNoticeController {
     @PutMapping("/{employmentNoticeId}")
     public ResponseEntity<EmploymentNoticeResponseDto> updateEmploymentNotice(@PathVariable Long employmentNoticeId,@RequestBody EmploymentNoticeRequestDto requestDto) {
         EmploymentNoticeResponseDto result = employmentNoticeService.updateEmploymentNotice(requestDto, employmentNoticeId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @DeleteMapping("/{employmentNoticeId}")
+    public ResponseEntity<ApiResponseDto> deleteEmploymentNotice(@PathVariable Long employmentNoticeId) {
+        ApiResponseDto result = employmentNoticeService.deleteEmploymentNotice(employmentNoticeId);
 
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
