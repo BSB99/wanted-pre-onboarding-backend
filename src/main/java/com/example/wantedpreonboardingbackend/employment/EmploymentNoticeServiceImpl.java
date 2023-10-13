@@ -6,14 +6,26 @@ import com.example.wantedpreonboardingbackend.company.CompanyService;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class EmploymentNoticeServiceImpl implements EmploymentNoticeService{
     private final CompanyService companyService;
     private final EmploymentNoticeRepository employmentNoticeRepository;
+
+    public List<EmploymentNoticeResponseDto> getEmploymentNoticeList(Pageable pageable) {
+        return employmentNoticeRepository
+                .findAllByOrderById(pageable)
+                .stream()
+                .map(EmploymentNoticeResponseDto::new)
+                .toList();
+    }
 
     public EmploymentNoticeResponseDto createEmploymentNotice(EmploymentNoticeRequestDto requestDto) {
         Company company = companyService.getCompany(requestDto.getCompanyId());

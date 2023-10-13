@@ -4,9 +4,13 @@ import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +23,13 @@ public class EmploymentNoticeController {
         EmploymentNoticeResponseDto result = employmentNoticeService.createEmploymentNotice(requestDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<EmploymentNoticeResponseDto>> getEmploymentNoticeList(Pageable pageable) {
+        List<EmploymentNoticeResponseDto> result = employmentNoticeService.getEmploymentNoticeList(pageable);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PutMapping("/{employmentNoticeId}")
