@@ -17,4 +17,8 @@ public class CompanyServiceImpl implements CompanyService {
 
         return new CompanyResponseDto(company);
     };
+
+    public Company getCompany(Long companyId) {
+        return companyRepository.findById(companyId).orElseThrow(() -> new IllegalArgumentException("회사를 찾을 수 없습니다."));
+    };
 }
