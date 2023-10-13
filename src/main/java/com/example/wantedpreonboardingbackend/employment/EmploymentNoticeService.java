@@ -1,6 +1,7 @@
 package com.example.wantedpreonboardingbackend.employment;
 
 import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
+import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeDetailResponseDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import org.springframework.data.domain.Page;
@@ -18,4 +19,6 @@ public interface EmploymentNoticeService {
     List<EmploymentNoticeResponseDto> getEmploymentNoticeList(Pageable pageable);
 
     List<EmploymentNoticeResponseDto> getSearchEmploymentNoticeList(Pageable pageable, String content);
+
+    EmploymentNoticeDetailResponseDto getEmploymentNoticeInfo(Long employmentNoticeId);
 }

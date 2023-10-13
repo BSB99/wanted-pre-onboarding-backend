@@ -3,6 +3,7 @@ package com.example.wantedpreonboardingbackend.employment;
 import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
 import com.example.wantedpreonboardingbackend.company.Company;
 import com.example.wantedpreonboardingbackend.company.CompanyService;
+import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeDetailResponseDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,12 @@ import java.util.List;
 public class EmploymentNoticeServiceImpl implements EmploymentNoticeService{
     private final CompanyService companyService;
     private final EmploymentNoticeRepository employmentNoticeRepository;
+
+    public EmploymentNoticeDetailResponseDto getEmploymentNoticeInfo(Long employmentNoticeId) {
+        EmploymentNotice employmentNotice = getEmploymentNotice(employmentNoticeId);
+
+        return new EmploymentNoticeDetailResponseDto(employmentNotice);
+    }
 
     public List<EmploymentNoticeResponseDto> getEmploymentNoticeList(Pageable pageable) {
         return employmentNoticeRepository

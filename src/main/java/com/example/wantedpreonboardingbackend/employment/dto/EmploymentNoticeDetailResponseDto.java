@@ -18,7 +18,8 @@ public class EmploymentNoticeDetailResponseDto {
         this.id = employmentNotice.getId();
         this.company_name = employmentNotice.getCompany().getName();
         this.country = employmentNotice.getCompany().getCountry();
-        this.region = employmentNotice.getPosition();
+        this.region = employmentNotice.getCompany().getRegion();
+        this.position = employmentNotice.getPosition();
         this.money = employmentNotice.getMoney();
         this.technology = employmentNotice.getTechnology();
         this.description = employmentNotice.getDescription();

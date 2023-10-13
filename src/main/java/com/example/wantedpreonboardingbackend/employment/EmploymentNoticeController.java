@@ -1,6 +1,7 @@
 package com.example.wantedpreonboardingbackend.employment;
 
 import com.example.wantedpreonboardingbackend.common.ApiResponseDto;
+import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeDetailResponseDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeRequestDto;
 import com.example.wantedpreonboardingbackend.employment.dto.EmploymentNoticeResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,13 @@ public class EmploymentNoticeController {
         EmploymentNoticeResponseDto result = employmentNoticeService.createEmploymentNotice(requestDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @GetMapping("/{employmentNoticeId}")
+    public ResponseEntity<EmploymentNoticeDetailResponseDto> getEmploymentNoticeInfo(@PathVariable Long employmentNoticeId) {
+        EmploymentNoticeDetailResponseDto result = employmentNoticeService.getEmploymentNoticeInfo(employmentNoticeId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @GetMapping("/all")
