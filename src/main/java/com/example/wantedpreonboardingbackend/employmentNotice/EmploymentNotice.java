@@ -17,15 +17,19 @@ public class EmploymentNotice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String position;
 
+    @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
     private String technology;
 
+    @Column
     private int money;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "company_id")
     private Company company;
 
