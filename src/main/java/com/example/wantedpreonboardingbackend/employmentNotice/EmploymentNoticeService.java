@@ -20,4 +20,6 @@ public interface EmploymentNoticeService {
     List<EmploymentNoticeResponseDto> getSearchEmploymentNoticeList(Pageable pageable, String content);
 
     EmploymentNoticeDetailResponseDto getEmploymentNoticeInfo(Long employmentNoticeId);
+
+    EmploymentNotice getEmploymentNotice(Long employmentNoticeId);
 }
