@@ -31,4 +31,4 @@
 - @DynamicUpdate 어노테이션을 써서 기존에 있던 값과 값이 같으면 해당 값은 제외하고 달라진 값만 쿼리문을 보냄
 
 <h3>ERD 설계</h3>
-![img.png](img.png)
+![img](https://github.com/BSB99/wanted-pre-onboarding-backend/assets/67528758/ebd96a67-ffd7-41c9-bced-ef9c179a4c02)
